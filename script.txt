@@ -1,4 +1,4 @@
 $source = 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip';
 $user = [System.Environment]::UserName;
 $destination = "C:\Users\$user\Downloads\test.zip";
-Invoke-WebRequest -Uri $source -OutFile $destination -Credential $credential;
+Invoke-WebRequest -Uri $source -OutFile $destination;
