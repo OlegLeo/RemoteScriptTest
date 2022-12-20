@@ -24,8 +24,9 @@ $destination4pip = "C:\Users\$user\Downloads\get-pip.py";
 Invoke-WebRequest -Uri $pipdownloadurl -OutFile $destination4pip;
 
 
-"C:\Users\$user\Downloads\test\python.exe" $destination4pip
+start C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\get-pip.py
 
+timeout 20
 
 #Getting inside the python folder
 
